@@ -1,0 +1,16 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+    <section class="latest-posts">
+        <h2>Últimas Publicaciones</h2>
+        <ul>
+            {% for post in posts %}
+                <li class="post-item">
+                    <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+                    <p class="post-summary">{{ post.content|truncatewords:50 }}</p>
+                    <p class="post-metadata">Publicado por: {{ post.author.username }} el {{ post.pub_date }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

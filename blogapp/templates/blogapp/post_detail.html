@@ -1,0 +1,11 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+    <article class="post-detail">
+        <h2>{{ post.title }}</h2>
+        <p class="post-metadata">Publicado por: {{ post.author.username }} el {{ post.pub_date }}</p>
+        <div class="post-content">
+            {{ post.content|safe }}
+        </div>
+    </article>
+{% endblock %}
